@@ -18,6 +18,12 @@ public class SpecieService {
         this.specieMapper = specieMapper;
     }
 
+    public SpecieResponseDTO createSpecie(SpecieRequestDTO specieRequestDTO) {
+        SpecieEntity specieEntityToSave = specieMapper.toEntity(specieRequestDTO);
+        SpecieEntity specieEntitySaved = specieRepository.save(specieEntityToSave);
+        return specieMapper.toResponseDto(specieEntitySaved);
+    }
+
     public List<SpecieResponseDTO> findAllSpecies() {
         List<SpecieEntity> species = specieRepository.findAll();
         return specieMapper.toResponseList(species);
@@ -25,14 +31,8 @@ public class SpecieService {
 
     public SpecieResponseDTO findSpecieById(Long id) {
         SpecieEntity specieEntity = specieRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException("Specie with " + id + " not found."));
+                .orElseThrow(() -> new NotFoundException("Specie with id " + id + " not found."));
         return specieMapper.toResponseDto(specieEntity);
-    }
-
-    public SpecieResponseDTO createSpecie(SpecieRequestDTO specieRequestDTO) {
-        SpecieEntity specieEntityToSave = specieMapper.toEntity(specieRequestDTO);
-        SpecieEntity specieEntitySaved = specieRepository.save(specieEntityToSave);
-        return specieMapper.toResponseDto(specieEntitySaved);
     }
 
 }

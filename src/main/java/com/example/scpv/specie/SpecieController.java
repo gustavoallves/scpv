@@ -2,6 +2,7 @@ package com.example.scpv.specie;
 
 import com.example.scpv.specie.dto.SpecieRequestDTO;
 import com.example.scpv.specie.dto.SpecieResponseDTO;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -19,6 +20,17 @@ public class SpecieController {
         this.specieService = specieService;
     }
 
+    @PostMapping()
+    public ResponseEntity<SpecieResponseDTO> createSpecie(@Valid @RequestBody SpecieRequestDTO specieRequestDTO) {
+        SpecieResponseDTO specieResponseDTO = specieService.createSpecie(specieRequestDTO);
+        URI location = ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(specieResponseDTO.id())
+                .toUri();
+        return ResponseEntity.created(location).body(specieResponseDTO);
+    }
+
     @GetMapping("/list")
     public ResponseEntity<List<SpecieResponseDTO>> findAllSpecies() {
         return ResponseEntity.ok(specieService.findAllSpecies());
@@ -29,16 +41,5 @@ public class SpecieController {
     public ResponseEntity<SpecieResponseDTO> findSpecieById(@PathVariable Long id) {
         SpecieResponseDTO specieResponseDTO = specieService.findSpecieById(id);
         return ResponseEntity.ok(specieResponseDTO);
-    }
-
-    @PostMapping()
-    public ResponseEntity<SpecieResponseDTO> createSpecie(@RequestBody SpecieRequestDTO specieRequestDTO) {
-        SpecieResponseDTO specieResponseDTO = specieService.createSpecie(specieRequestDTO);
-        URI location = ServletUriComponentsBuilder
-                .fromCurrentRequest()
-                .path("/{id}")
-                .buildAndExpand(specieResponseDTO.id())
-                .toUri();
-        return ResponseEntity.created(location).body(specieResponseDTO);
     }
 }
