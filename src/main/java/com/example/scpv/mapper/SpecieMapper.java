@@ -1,31 +1,19 @@
 package com.example.scpv.mapper;
 
-import com.example.scpv.dto.SpecieDTO;
+import com.example.scpv.dto.specie.SpecieRequestDTO;
+import com.example.scpv.dto.specie.SpecieResponseDTO;
 import com.example.scpv.entity.Specie;
-import org.springframework.stereotype.Component;
+import org.mapstruct.Mapper;
 
-@Component
-public class SpecieMapper {
+import java.util.List;
 
-    public Specie map(SpecieDTO specieDTO) {
-        Specie specie = new Specie();
-        specie.setId(specieDTO.getId());
-        specie.setSpeciesName(specieDTO.getSpeciesName());
-        specie.setLossPercentage(specieDTO.getLossPercentage());
-        specie.setNetSalesPrice(specieDTO.getNetSalesPrice());
-        specie.setGrossPurchasePrice(specieDTO.getGrossPurchasePrice());
+@Mapper(componentModel = "spring")
+public interface SpecieMapper {
 
-        return specie;
-    }
+    Specie toEntity(SpecieRequestDTO specieRequestDTO);
 
-    public SpecieDTO map(Specie specie) {
-        SpecieDTO specieDTO = new SpecieDTO();
-        specieDTO.setId(specie.getId());
-        specieDTO.setSpeciesName(specie.getSpeciesName());
-        specieDTO.setLossPercentage(specie.getLossPercentage());
-        specieDTO.setNetSalesPrice(specie.getNetSalesPrice());
-        specieDTO.setGrossPurchasePrice(specie.getGrossPurchasePrice());
+    SpecieResponseDTO toResponseDto(Specie specie);
 
-        return specieDTO;
-    }
+    List<SpecieResponseDTO> toResponseList(List<Specie> species);
+
 }
