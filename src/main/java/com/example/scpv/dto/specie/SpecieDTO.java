@@ -1,4 +1,4 @@
-package com.example.scpv.dto;
+package com.example.scpv.dto.specie;
 
 import java.math.BigDecimal;
 
