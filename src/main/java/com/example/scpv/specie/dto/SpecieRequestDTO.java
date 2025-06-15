@@ -1,4 +1,4 @@
-package com.example.scpv.dto.specie;
+package com.example.scpv.specie.dto;
 
 import jakarta.validation.constraints.*;
 

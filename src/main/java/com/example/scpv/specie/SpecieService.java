@@ -1,11 +1,8 @@
-package com.example.scpv.service;
+package com.example.scpv.specie;
 
-import com.example.scpv.dto.specie.SpecieRequestDTO;
-import com.example.scpv.dto.specie.SpecieResponseDTO;
-import com.example.scpv.entity.Specie;
-import com.example.scpv.exceptionhandler.NotFoundException;
-import com.example.scpv.mapper.SpecieMapper;
-import com.example.scpv.repository.SpecieRepository;
+import com.example.scpv.specie.dto.SpecieRequestDTO;
+import com.example.scpv.specie.dto.SpecieResponseDTO;
+import com.example.scpv.common.exception.NotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,20 +19,20 @@ public class SpecieService {
     }
 
     public List<SpecieResponseDTO> findAllSpecies() {
-        List<Specie> species = specieRepository.findAll();
+        List<SpecieEntity> species = specieRepository.findAll();
         return specieMapper.toResponseList(species);
     }
 
     public SpecieResponseDTO findSpecieById(Long id) {
-        Specie specie = specieRepository.findById(id)
+        SpecieEntity specieEntity = specieRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Specie with " + id + " not found."));
-        return specieMapper.toResponseDto(specie);
+        return specieMapper.toResponseDto(specieEntity);
     }
 
     public SpecieResponseDTO createSpecie(SpecieRequestDTO specieRequestDTO) {
-        Specie specieToSave = specieMapper.toEntity(specieRequestDTO);
-        Specie specieSaved = specieRepository.save(specieToSave);
-        return specieMapper.toResponseDto(specieSaved);
+        SpecieEntity specieEntityToSave = specieMapper.toEntity(specieRequestDTO);
+        SpecieEntity specieEntitySaved = specieRepository.save(specieEntityToSave);
+        return specieMapper.toResponseDto(specieEntitySaved);
     }
 
 }

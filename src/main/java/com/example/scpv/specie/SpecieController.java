@@ -1,8 +1,7 @@
-package com.example.scpv.controller;
+package com.example.scpv.specie;
 
-import com.example.scpv.dto.specie.SpecieRequestDTO;
-import com.example.scpv.dto.specie.SpecieResponseDTO;
-import com.example.scpv.service.SpecieService;
+import com.example.scpv.specie.dto.SpecieRequestDTO;
+import com.example.scpv.specie.dto.SpecieResponseDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
