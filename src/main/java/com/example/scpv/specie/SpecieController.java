@@ -36,7 +36,6 @@ public class SpecieController {
         return ResponseEntity.ok(specieService.findAllSpecies());
     }
 
-
     @GetMapping("/{id}")
     public ResponseEntity<SpecieResponseDTO> findSpecieById(@PathVariable Long id) {
         SpecieResponseDTO specieResponseDTO = specieService.findSpecieById(id);
