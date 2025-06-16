@@ -1,8 +1,8 @@
 package com.example.scpv.specie;
 
+import com.example.scpv.exceptionhandler.NotFoundException;
 import com.example.scpv.specie.dto.SpecieRequestDTO;
 import com.example.scpv.specie.dto.SpecieResponseDTO;
-import com.example.scpv.common.exception.NotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

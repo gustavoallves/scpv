@@ -11,7 +11,7 @@ public record SpecieRequestDTO(
         String speciesName,
 
         @NotNull(message = "Loss percentage cannot be null.")
-        @DecimalMin(value = "0.0", message = "Loss percentage cannot be negative.")
+        @DecimalMin(value = "0.00", message = "Loss percentage cannot be negative.")
         @DecimalMax(value = "100.0", message = "Loss percentage cannot exceed 100.0.")
         BigDecimal lossPercentage,
 
