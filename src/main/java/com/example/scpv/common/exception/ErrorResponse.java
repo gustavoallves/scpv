@@ -1,4 +1,4 @@
-package com.example.scpv.exceptionhandler;
+package com.example.scpv.common.exception;
 
 public record ErrorResponse(
         int status,

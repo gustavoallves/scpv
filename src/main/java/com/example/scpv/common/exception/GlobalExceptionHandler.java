@@ -1,4 +1,4 @@
-package com.example.scpv.exceptionhandler;
+package com.example.scpv.common.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
