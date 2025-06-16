@@ -1,4 +1,4 @@
-package com.example.scpv.specie;
+package com.example.scpv.species;
 
 import jakarta.persistence.*;
 
@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "species")
-public class SpecieEntity {
+public class SpeciesEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +24,7 @@ public class SpecieEntity {
     @Column(name = "gross_purchase_price", nullable = false)
     private BigDecimal grossPurchasePrice;
 
-    public SpecieEntity() {
+    public SpeciesEntity() {
     }
 
     public Long getId() {

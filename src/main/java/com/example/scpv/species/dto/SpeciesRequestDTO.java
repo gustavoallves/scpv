@@ -1,10 +1,10 @@
-package com.example.scpv.specie.dto;
+package com.example.scpv.species.dto;
 
 import jakarta.validation.constraints.*;
 
 import java.math.BigDecimal;
 
-public record SpecieRequestDTO(
+public record SpeciesRequestDTO(
 
         @NotBlank(message = "Species name cannot be blank.")
         @Size(min = 3, max = 100, message = "Species name must be between 3 and 100 characters.")

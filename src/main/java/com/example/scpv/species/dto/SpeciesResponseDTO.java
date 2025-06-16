@@ -1,8 +1,8 @@
-package com.example.scpv.specie.dto;
+package com.example.scpv.species.dto;
 
 import java.math.BigDecimal;
 
-public record SpecieResponseDTO(
+public record SpeciesResponseDTO(
         Long id,
         String speciesName,
         BigDecimal lossPercentage,
