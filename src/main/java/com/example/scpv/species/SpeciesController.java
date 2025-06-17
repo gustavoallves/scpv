@@ -13,7 +13,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/species")
 public class SpeciesController {
-
     private final SpeciesService speciesService;
 
     public SpeciesController(SpeciesService speciesService) {
@@ -54,7 +53,7 @@ public class SpeciesController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteSpecies(@Valid @PathVariable Long id) {
+    public ResponseEntity<?> deleteSpecies(@PathVariable Long id) {
         speciesService.deleteSpecies(id);
         return ResponseEntity.ok("Species deleted.");
     }

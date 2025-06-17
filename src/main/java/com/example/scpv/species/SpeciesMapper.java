@@ -8,11 +8,9 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface SpeciesMapper {
-
     SpeciesEntity toEntity(SpeciesRequestDTO speciesRequestDTO);
 
     SpeciesResponseDTO toResponseDto(SpeciesEntity speciesEntity);
 
     List<SpeciesResponseDTO> toResponseList(List<SpeciesEntity> species);
-
 }
