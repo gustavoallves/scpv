@@ -8,4 +8,4 @@ services:
       - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
       - MYSQL_USER=${DB_USER}
     ports:
-      - '51860:3306'
+      - '52936:3306'
