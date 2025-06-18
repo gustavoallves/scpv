@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "vessels")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "vessel_type")
 public class VesselEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
